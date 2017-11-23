@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}Your Decision in '{{ player.treatment }}' treatment{% endblock %}
+
+{% block content %}
+    <p>
+        You are <strong>Participant 1</strong>. Now please decide how much you will keep for yourself.
+    </p>
+
+    {% formfield group.kept %}
+
+    {% next_button %}
+    {% if player.treatment == 'person' %}
+        {% include Constants.instructions_template %}
+    {% else %}
+        {% include Constants.charity_instructions_template %}
+    {% endif %}
+{% endblock %}

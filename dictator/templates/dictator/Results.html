@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+    <p>
+
+        {% if player.role == 'dictator' %}
+            You will be paid for your decision about {{ player.treatment }}. <br>
+            You decided to keep <strong>{{ paying_round_kept }}</strong> for yourself.
+        {% else %}
+            Participant 1 decided to keep <strong>{{ person_kept }}</strong>, so
+            you got <strong>{{ offer }}</strong>.
+        {% endif %}
+
+        {% next_button %}
+    </p>
+{% endblock %}
